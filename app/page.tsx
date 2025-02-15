@@ -8,7 +8,7 @@ export default function Home() {
           RizzEttayi
         </span>
         Created for
-        <span className="text-orange-500"> Ettayi's</span> All over the world
+        <span className="text-orange-500"> Ettayi&apos;s</span> All over the world
       </h1>
 
       <div className="grid grid-cols-1  gap-4 max-w-2xl w-full">
