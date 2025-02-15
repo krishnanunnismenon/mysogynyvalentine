@@ -43,8 +43,7 @@ export default function Home() {
             
             { 
               role: "user", 
-              content: `Generate a romantic email for ${name} based on the following features: ${formattedFeatures} and a rizz level of ${rizzLevel[0]}. out of 5
-              . Make sure the mail is Egoistic and selfcentered around the user` 
+              content: `Generate a romantic email for ${name} based on the following features: ${formattedFeatures} and a rizz level of ${rizzLevel[0]} out of 5` 
             },
           ],
           temperature: 0.7,
