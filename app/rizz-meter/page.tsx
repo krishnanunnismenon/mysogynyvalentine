@@ -125,7 +125,7 @@ const pointMap: PointMap = {
           🔥 Ultimate Rizz Meter Quiz 🔥
         </motion.h1>
         <motion.p className="text-lg mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Are you a RIZZ GOD or a RIZZLESS NPC? Let's find out!
+          Are you a RIZZ GOD or a RIZZLESS NPC? Let&apos;s find out!
         </motion.p>
         <form onSubmit={handleSubmit} className="w-full max-w-lg">
           {questions.map((q, index) => (

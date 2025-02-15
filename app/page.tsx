@@ -3,7 +3,7 @@ import Link from "next/link"
 export default function Home() {
   return (
     <main className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-8">
-      <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 relative">
+      <h1 className="text-3xl md:text-6xl font-bold text-center mb-8 relative">
         <span className="text-red-600 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
           RizzEttayi @ Valetine
         </span>
