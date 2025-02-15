@@ -43,24 +43,7 @@ type Question = {
             D: "‘If I were a chair, would you sit on me?’"
         }
     },
-    {
-        text: "Your date asks, “Tell me a fun fact about yourself.” What do you say?",
-        options: {
-            A: "‘I can tie a cherry stem with my tongue. Wanna see?’",
-            B: "‘I’ve memorized every Pokémon cry, and I can do an impression of all of them.’",
-            C: "‘I only cry during Pixar movies and when I get left on read.’",
-            D: "‘I once got banned from Tinder for saying “Let’s breed like rare Pokémon.”’"
-        }
-    },
-    {
-        text: "Your crush’s friend asks them, “Why are you dating this person?” What do you hope they say?",
-        options: {
-            A: "‘They smell like Old Spice and regret.’",
-            B: "‘Their DMs were just so persistent I finally caved.’",
-            C: "‘Their pickup lines were so bad they became good.’",
-            D: "‘They convinced me our astrology charts are too compatible to ignore.’"
-        }
-    },
+    
     {
         text: "Your crush leaves you on read for 8 hours. What’s your move?",
         options: {
@@ -93,12 +76,9 @@ type Question = {
 const pointMap: PointMap = {
     q1: { A: 1, B: 3, C: 2, D: 0 },
     q2: { A: 2, B: 3, C: 1, D: 0 },
-    q3: { A: 1, B: 0, C: 2, D: 3 },
-    q4: { A: 3, B: 0, C: 1, D: 2 },
-    q5: { A: 1, B: 2, C: 3, D: 0 },
-    q6: { A: 2, B: 3, C: 1, D: 0 },
-    q7: { A: 1, B: 2, C: 3, D: 0 },
-    q8: { A: 2, B: 0, C: 3, D: 1 }
+    q3: { A: 2, B: 3, C: 1, D: 0 },
+    q4: { A: 1, B: 2, C: 3, D: 0 },
+    q5: { A: 2, B: 0, C: 3, D: 1 }
 };
 
   
@@ -150,14 +130,16 @@ const pointMap: PointMap = {
           </Button>
         </form>
         {score !== null && (
-          <motion.div
-            className="mt-6 text-xl p-4 rounded bg-orange-500"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Your Rizz Score: {score}
-          </motion.div>
-        )}
+  <motion.div
+    className="mt-6 text-xl p-4 rounded bg-orange-500"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+  >
+    {score < 5 && <p>🫠 Bro… Why are you gay.</p>}
+    {score >= 5 && score < 10 && <p>😏 You got some rizz, but it’s inconsistent. You’re a wildcard—sometimes smooth, sometimes cringe.</p>}
+    {score >= 10 && <p>🔥 YOU ARE A RIZZ GOD! People fall for you like dominoes. Teach us your ways!</p>}
+  </motion.div>
+)}
       </div>
     );
   };

@@ -134,7 +134,7 @@ export default function Home() {
             Valentine&apos;s AI Love Assistant
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Generate the perfect Valentine&apos;s message or chat about love ✨
+            Generate the perfect rizz mail or chat about love ✨
           </p>
         </div>
 

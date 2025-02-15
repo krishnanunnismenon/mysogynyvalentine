@@ -4,22 +4,22 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-8">
       <h1 className="text-3xl md:text-6xl font-bold text-center mb-8 relative">
-        <span className="text-red-600 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
-          RizzEttayi @ Valetine
+        <span className="text-red-600 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full pb-6">
+          RizzEttayi
         </span>
-        A site for <span className="text-black line-through">Mysogynistic</span>
-        <span className="text-red-600"> AWESOME</span> people
+        Created for
+        <span className="text-orange-500"> Ettayi's</span> All over the world
       </h1>
 
       <div className="grid grid-cols-1  gap-4 max-w-2xl w-full">
-        <FeatureButton href="/proposal" text="Propose Me" />
+        <FeatureButton href="/rizz-me" text="Rizz Me" />
         <FeatureButton href="/rizz-meter" text="Rizz Meter" />
-        <FeatureButton href="/ai-mail" text="Ai Mail" />
+        <FeatureButton href="/rizz-mail" text="Rizz Mail" />
         
       </div>
 
       <footer className="mt-12 text-sm text-gray-600">
-        &copy; {new Date().getFullYear()} Totally Not Toxic Enterprises
+        &copy; {new Date().getFullYear()} Totally not for kunuvavaas
       </footer>
     </main>
   )
