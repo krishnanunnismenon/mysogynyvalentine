@@ -52,7 +52,7 @@ export default function Home() {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIML_API_KEY}`,
+            Authorization: `Bearer e40b806424614feba1fef7810602a35b`,
           },
         }
       );
