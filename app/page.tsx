@@ -1,93 +1,39 @@
-  'use client'
-  import { useState } from "react";
-  import axios from "axios";
+import Link from "next/link"
 
-  // Define types for messages and API response
-  interface Message {
-    role: "system" | "user" | "assistant";
-    content: string;
-  }
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-8">
+      <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 relative">
+        <span className="text-red-600 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full">
+          Alpha Male
+        </span>
+        A site for <span className="text-black line-through">Mysogynistic</span>
+        <span className="text-red-600"> AWESOME</span> people
+      </h1>
 
-  interface ApiResponse {
-    choices: { message: { content: string } }[]; // Extracted from response format
-  }
-
-  export default function Home() {
-    const [userMessage, setUserMessage] = useState<string>("");
-    const [chatHistory, setChatHistory] = useState<Message[]>([]);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    const sendMessage = async () => {
-      if (!userMessage.trim()) return;
-      setLoading(true);
-
-      try {
-        const response = await axios.post<ApiResponse>(
-          "https://api.aimlapi.com/v1/chat/completions",
-          {
-            model: "mistralai/Mistral-7B-Instruct-v0.2", // Using the Mistral model
-            messages: [
-              { role: "system", content: "You are a helpful AI assistant." },
-              { role: "user", content: userMessage },
-            ],
-            temperature: 0.7,
-            max_tokens: 256,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIML_API_KEY}`,
-            },
-          }
-        );
-
-        // Extract AI response
-        const botMessage = response.data.choices[0].message.content;
-
-        setChatHistory([
-          ...chatHistory,
-          { role: "user", content: userMessage },
-          { role: "assistant", content: botMessage },
-        ]);
-        setUserMessage("");
-      } catch (error) {
-        console.error("Error fetching response:", error);
-        setChatHistory([
-          ...chatHistory,
-          { role: "assistant", content: "Sorry, I couldn't process that request." },
-        ]);
-      }
-
-      setLoading(false);
-    };
-
-    return (
-      <div className="flex flex-col items-center p-4">
-        <div className="w-full max-w-md bg-gray-900 text-white p-4 rounded-lg shadow-lg">
-          <div className="h-64 overflow-y-auto border border-gray-700 p-2">
-            {chatHistory.map((msg, index) => (
-              <div key={index} className={`p-2 ${msg.role === "user" ? "text-right" : "text-left"}`}>
-                <strong>{msg.role === "user" ? "You" : "Assistant"}:</strong> {msg.content}
-              </div>
-            ))}
-          </div>
-          <div className="flex mt-4">
-            <input
-              type="text"
-              className="flex-1 p-2 border border-gray-700 bg-gray-800 text-white rounded-lg"
-              value={userMessage}
-              onChange={(e) => setUserMessage(e.target.value)}
-              placeholder="Ask me something..."
-            />
-            <button
-              className="ml-2 p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
-              onClick={sendMessage}
-              disabled={loading}
-            >
-              {loading ? "..." : "Send"}
-            </button>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl w-full">
+        <FeatureButton href="/pickup-lines" text="Cringeworthy Pickup Lines" />
+        <FeatureButton href="/gym-selfies" text="Upload Gym Selfies" />
+        <FeatureButton href="/protein-shakes" text="Protein Shake Recipes" />
+        <FeatureButton href="/date-ideas" text="Alpha Date Ideas" />
+        <FeatureButton href="/compliments" text="Backhanded Compliments" />
+        <FeatureButton href="/peacocking" text="Peacocking Tips" />
       </div>
-    );
-  }
+
+      <footer className="mt-12 text-sm text-gray-600">
+        &copy; {new Date().getFullYear()} Totally Not Toxic Enterprises
+      </footer>
+    </main>
+  )
+}
+
+function FeatureButton({ href, text }: { href: string; text: string }) {
+  return (
+    <Link href={href} className="block">
+      <button className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+        {text}
+      </button>
+    </Link>
+  )
+}
+
