@@ -116,6 +116,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-100 to-red-100 dark:from-pink-950 dark:to-red-950">
+        <div className="relative">
+    {Array.from({ length: 5 }).map((_, index) => (
+      <motion.img
+        key={index}
+        src="/pookie3.jpg"
+        alt="Pookie"
+        className={`absolute w-16 h-16 md:w-24 md:h-24 
+          ${index % 2 === 0 ? "animate-bounce" : "animate-spin"}`
+        }
+        style={{
+          top: `${Math.random() * 80}vh`,
+          left: `${Math.random() * 90}vw`,
+        }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      />
+    ))}
+  </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -11,6 +11,14 @@ export default function Home() {
         <span className="text-orange-500"> Ettayi&apos;s</span> All over the world
       </h1>
 
+      <div className="flex justify-center mb-6">
+        <img
+          src="pookie2.jpg"
+          alt="pookie"
+          className="w-32 md:w-48 rounded-full shadow-lg animate-bounce"
+        />
+      </div>
+
       <div className="grid grid-cols-1  gap-4 max-w-2xl w-full">
         <FeatureButton href="/rizz-me" text="Rizz Me" />
         <FeatureButton href="/rizz-meter" text="Rizz Meter" />
